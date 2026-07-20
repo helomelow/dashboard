@@ -87,18 +87,13 @@
             <div class="flex flex-col xl:flex-row justify-between items-start xl:items-center mb-8 gap-4">
                 <div>
                     <h1 class="text-2xl font-bold text-slate-800">Manajemen Katalog</h1>
-                    <p class="text-sm text-slate-500 mt-1">Kelola data E-Book dari GitHub, tersimpan ke TiDB.</p>
+                    <p class="text-sm text-slate-500 mt-1">Kelola data E-Book secara Live dari Database TiDB.</p>
                 </div>
                 <div class="flex flex-wrap gap-2 w-full xl:w-auto items-center justify-start xl:justify-end">
                     
                     <!-- TOMBOL AKTIFKAN SEMUA DI HALAMAN -->
                     <button id="btnActivatePage" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md transition flex items-center justify-center gap-2" onclick="window.activateAllOnPage()">
                         <i class="fa-solid fa-power-off"></i> Aktifkan Semua (Halaman Ini)
-                    </button>
-
-                    <!-- FITUR SINKRONISASI -->
-                    <button id="btnSync" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md transition flex items-center justify-center gap-2" onclick="syncDatabaseToGitHub()">
-                        <i class="fa-solid fa-rotate"></i> Sinkronkan dari TiDB
                     </button>
 
                     <button id="btnBulkEdit" class="bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md transition flex items-center justify-center gap-2 hidden" onclick="openBulkEditModal()">
@@ -172,7 +167,7 @@
                         <button onclick="window.nextPage()" id="btnNextPage" class="w-8 h-8 flex items-center justify-center bg-white border border-gray-200 rounded hover:bg-slate-50 disabled:opacity-30 disabled:cursor-not-allowed transition text-slate-600"><i class="fas fa-chevron-right"></i></button>
                     </div>
 
-                    <span class="flex items-center gap-2 hidden md:flex"><i class="fa-solid fa-code-branch text-green-500"></i> Data Source: GitHub JSON</span>
+                    <span class="flex items-center gap-2 hidden md:flex"><i class="fa-solid fa-database text-green-500"></i> Data Source: TiDB Real-Time</span>
                 </div>
             </div>
         </section>
@@ -276,10 +271,9 @@
 
     <script>
         // ==========================================
-        // PENGATURAN URL
+        // PENGATURAN URL (GITHUB DIHAPUS)
         // ==========================================
         const ADMIN_API_URL = "https://backend-8occ.onrender.com/api/admin"; 
-        const GITHUB_CATALOG_URL = "katalog.json";
         
         let globalProducts = [];
         let filteredProducts = [];
@@ -496,40 +490,6 @@
         });
 
         // ==========================================
-        // FITUR SINKRONISASI MANUAL (TARIK DATA)
-        // ==========================================
-        async function syncDatabaseToGitHub() {
-            if(!confirm("Anda yakin ingin menarik seluruh data dari TiDB ke GitHub?\n\nJika ini pertama kali, proses ini sangat aman untuk mengisi katalog yang masih kosong.")) return;
-
-            const btn = document.getElementById('btnSync');
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Menyinkronkan...';
-            btn.disabled = true;
-
-            try {
-                const response = await fetch(`${ADMIN_API_URL}/sync`, {
-                    method: 'POST',
-                    headers: getHeaders()
-                });
-
-                if (response.ok) {
-                    showNotification("Sinkronisasi Sukses!", "Data TiDB telah disalin ke GitHub. Memuat ulang data...", "success");
-                    setTimeout(() => {
-                        loadProducts(true);
-                    }, 2500);
-                } else {
-                    const errText = await response.text();
-                    throw new Error(errText);
-                }
-            } catch (error) {
-                showNotification("Gagal Sinkronisasi", error.message, "error");
-            } finally {
-                btn.innerHTML = originalHTML;
-                btn.disabled = false;
-            }
-        }
-
-        // ==========================================
         // 3. LOGIKA FILTER, SORT, DAN PAGINASI
         // ==========================================
         Object.defineProperty(window, 'toggleClearButton', {
@@ -643,28 +603,26 @@
         }
 
         // ==========================================
-        // 4. FETCH DATA (DARI GITHUB) & RENDER TABEL
+        // 4. FETCH DATA (DARI DATABASE REAL-TIME VIA BACKEND)
         // ==========================================
         async function loadProducts(keepPage = false) {
             try {
-                const cacheBuster = new Date().getTime();
-                const res = await fetch(`${GITHUB_CATALOG_URL}?v=${cacheBuster}`);
+                const res = await fetch(`${ADMIN_API_URL}/products`, {
+                    headers: getHeaders()
+                });
                 
-                if (!res.ok) throw new Error(`Gagal mengambil data dari GitHub: ${res.status}`);
-
-                const data = await res.json();
-                
-                if (Array.isArray(data)) {
-                    globalProducts = data;
-                } else if (data && data.products) {
-                    globalProducts = data.products;
-                } else {
-                    throw new Error("Format JSON tidak dikenali");
+                if (!res.ok) {
+                    if(res.status === 401) {
+                        logoutAdmin();
+                        throw new Error("Sesi berakhir atau Kunci Rahasia salah.");
+                    }
+                    throw new Error(`Gagal mengambil data dari Server: ${res.status}`);
                 }
 
+                globalProducts = await res.json();
                 window.applyFilterAndSort(keepPage);
             } catch (err) {
-                showNotification("Perhatian", "Katalog GitHub kosong atau tidak bisa diakses. Silakan klik tombol 'Sinkronkan dari TiDB' di pojok kanan atas.", "warning");
+                showNotification("Perhatian", err.message, "warning");
                 console.error(err);
             }
         }
@@ -815,7 +773,7 @@
 
                 let currentItem = 1;
                 for (const item of items) {
-                    btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Menyimpan Produk ${currentItem} dari ${items.length} ke GitHub & TiDB...`;
+                    btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Menyimpan Produk ${currentItem} dari ${items.length} ke Database...`;
                     
                     const id = item.dataset.id;
                     const prod = globalProducts.find(p => String(p.id) === id);
@@ -850,7 +808,7 @@
                 btn.innerHTML = originalText; btn.disabled = false;
                 window.closeBulkEditModal();
                 
-                if (failCount === 0) showNotification("Selesai", `${successCount} produk sukses ditulis ke GitHub & TiDB!`, "success");
+                if (failCount === 0) showNotification("Selesai", `${successCount} produk sukses diperbarui secara Real-Time!`, "success");
                 else showNotification("Peringatan", `${successCount} sukses, ${failCount} gagal diperbarui.`, "warning");
                 
                 selectedIds.clear(); updateBulkButton();
@@ -928,7 +886,7 @@
                 }
             }
 
-            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Menyimpan ke GitHub & TiDB...';
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Menyimpan ke Database...';
             
             const payload = {
                 name: document.getElementById('editProdName').value,
@@ -947,7 +905,7 @@
 
                 if(res.ok) {
                     closeEditModal();
-                    showNotification("Berhasil", "Data sukses diperbarui secara sinkron di GitHub dan TiDB!", "success");
+                    showNotification("Berhasil", "Data sukses diperbarui secara Real-Time!", "success");
                     
                     const updatedProdIndex = globalProducts.findIndex(p => String(p.id) === String(id));
                     if (updatedProdIndex !== -1) {
