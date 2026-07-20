@@ -287,20 +287,58 @@
         const itemsPerPage = 50;
 
         // ==========================================
-        // 1. SISTEM LOGIN
+        // 1. SISTEM LOGIN (VERSI AMAN DENGAN VERIFIKASI)
         // ==========================================
+        async function verifyAndEnter(secret, imgbbKey) {
+            try {
+                // Melakukan 'ping' ke backend Rust untuk mengecek apakah token valid
+                const response = await fetch(`${ADMIN_API_URL}/products`, {
+                    headers: { 'Authorization': `Bearer ${secret}` }
+                });
+
+                if (response.ok) {
+                    // Jika backend menjawab OK, simpan kunci dan buka dashboard
+                    localStorage.setItem('sanlucid_admin_secret', secret);
+                    if(imgbbKey) localStorage.setItem('sanlucid_imgbb_key', imgbbKey);
+                    
+                    document.getElementById('loginOverlay').style.display = 'none';
+                    document.getElementById('sidebar').style.display = 'flex';
+                    document.getElementById('mainContent').style.display = 'block';
+                    loadProducts();
+                } else {
+                    // Jika backend menolak, hapus kunci dari memori dan beri peringatan
+                    localStorage.removeItem('sanlucid_admin_secret');
+                    alert("Akses Ditolak: Kunci Rahasia Salah!");
+                    
+                    // Pastikan overlay login tetap muncul dan konten utama tersembunyi
+                    document.getElementById('loginOverlay').style.display = 'flex';
+                    document.getElementById('sidebar').style.display = 'none';
+                    document.getElementById('mainContent').style.display = 'none';
+                }
+            } catch(e) {
+                alert("Gagal terhubung ke server Backend. Pastikan server Rust Anda sedang menyala.");
+                // Jika error koneksi, pastikan overlay tetap muncul
+                document.getElementById('loginOverlay').style.display = 'flex';
+                document.getElementById('sidebar').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'none';
+            }
+        }
+
         function loginAdmin() {
             const secret = document.getElementById('adminSecretKey').value;
             const imgbbKey = document.getElementById('imgbbApiKey').value;
             if(!secret) return alert("Kunci Rahasia tidak boleh kosong!");
-
-            localStorage.setItem('sanlucid_admin_secret', secret);
-            localStorage.setItem('sanlucid_imgbb_key', imgbbKey);
             
-            document.getElementById('loginOverlay').style.display = 'none';
-            document.getElementById('sidebar').style.display = 'flex';
-            document.getElementById('mainContent').style.display = 'block';
-            loadProducts();
+            // Ubah tombol jadi status loading agar terlihat profesional
+            const btn = document.querySelector('button[onclick="loginAdmin()"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Memverifikasi...';
+            btn.disabled = true;
+
+            verifyAndEnter(secret, imgbbKey).finally(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            });
         }
 
         function logoutAdmin() {
@@ -314,10 +352,13 @@
         window.onload = () => {
             const savedSecret = localStorage.getItem('sanlucid_admin_secret');
             if(savedSecret) {
-                document.getElementById('loginOverlay').style.display = 'none';
-                document.getElementById('sidebar').style.display = 'flex';
-                document.getElementById('mainContent').style.display = 'block';
-                loadProducts();
+                // Saat halaman di-refresh, jangan langsung masuk, verifikasi ulang kuncinya!
+                verifyAndEnter(savedSecret, null);
+            } else {
+                // Pastikan layout awal terkunci rapat
+                document.getElementById('loginOverlay').style.display = 'flex';
+                document.getElementById('sidebar').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'none';
             }
         };
 
