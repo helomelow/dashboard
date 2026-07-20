@@ -91,7 +91,12 @@
                 </div>
                 <div class="flex flex-wrap gap-2 w-full xl:w-auto items-center justify-start xl:justify-end">
                     
-                    <!-- FITUR BARU: TOMBOL SINKRONISASI TIDB -> GITHUB -->
+                    <!-- TOMBOL AKTIFKAN SEMUA DI HALAMAN -->
+                    <button id="btnActivatePage" class="bg-emerald-500 hover:bg-emerald-600 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md transition flex items-center justify-center gap-2" onclick="window.activateAllOnPage()">
+                        <i class="fa-solid fa-power-off"></i> Aktifkan Semua (Halaman Ini)
+                    </button>
+
+                    <!-- FITUR SINKRONISASI -->
                     <button id="btnSync" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-sm font-bold shadow-md transition flex items-center justify-center gap-2" onclick="syncDatabaseToGitHub()">
                         <i class="fa-solid fa-rotate"></i> Sinkronkan dari TiDB
                     </button>
@@ -274,8 +279,6 @@
         // PENGATURAN URL
         // ==========================================
         const ADMIN_API_URL = "https://backend-8occ.onrender.com/api/admin"; 
-        
-        // GANTI BAGIAN "antraxyn/NAMA_REPO_ANDA" DENGAN USERNAME DAN REPO ANDA!
         const GITHUB_CATALOG_URL = "katalog.json";
         
         let globalProducts = [];
@@ -291,13 +294,11 @@
         // ==========================================
         async function verifyAndEnter(secret, imgbbKey) {
             try {
-                // Melakukan 'ping' ke backend Rust untuk mengecek apakah token valid
                 const response = await fetch(`${ADMIN_API_URL}/products`, {
                     headers: { 'Authorization': `Bearer ${secret}` }
                 });
 
                 if (response.ok) {
-                    // Jika backend menjawab OK, simpan kunci dan buka dashboard
                     localStorage.setItem('sanlucid_admin_secret', secret);
                     if(imgbbKey) localStorage.setItem('sanlucid_imgbb_key', imgbbKey);
                     
@@ -306,18 +307,14 @@
                     document.getElementById('mainContent').style.display = 'block';
                     loadProducts();
                 } else {
-                    // Jika backend menolak, hapus kunci dari memori dan beri peringatan
                     localStorage.removeItem('sanlucid_admin_secret');
                     alert("Akses Ditolak: Kunci Rahasia Salah!");
-                    
-                    // Pastikan overlay login tetap muncul dan konten utama tersembunyi
                     document.getElementById('loginOverlay').style.display = 'flex';
                     document.getElementById('sidebar').style.display = 'none';
                     document.getElementById('mainContent').style.display = 'none';
                 }
             } catch(e) {
                 alert("Gagal terhubung ke server Backend. Pastikan server Rust Anda sedang menyala.");
-                // Jika error koneksi, pastikan overlay tetap muncul
                 document.getElementById('loginOverlay').style.display = 'flex';
                 document.getElementById('sidebar').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'none';
@@ -329,7 +326,6 @@
             const imgbbKey = document.getElementById('imgbbApiKey').value;
             if(!secret) return alert("Kunci Rahasia tidak boleh kosong!");
             
-            // Ubah tombol jadi status loading agar terlihat profesional
             const btn = document.querySelector('button[onclick="loginAdmin()"]');
             const originalText = btn.innerHTML;
             btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Memverifikasi...';
@@ -352,10 +348,8 @@
         window.onload = () => {
             const savedSecret = localStorage.getItem('sanlucid_admin_secret');
             if(savedSecret) {
-                // Saat halaman di-refresh, jangan langsung masuk, verifikasi ulang kuncinya!
                 verifyAndEnter(savedSecret, null);
             } else {
-                // Pastikan layout awal terkunci rapat
                 document.getElementById('loginOverlay').style.display = 'flex';
                 document.getElementById('sidebar').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'none';
@@ -406,7 +400,103 @@
         }
 
         // ==========================================
-        // FITUR BARU: SINKRONISASI MANUAL (TARIK DATA)
+        // FITUR BARU: UBAH STATUS TUNGGAL (INSTAN)
+        // ==========================================
+        Object.defineProperty(window, 'toggleSingleStatus', {
+            value: async function(id, newStatus, btnElement) {
+                const p = globalProducts.find(item => String(item.id) === String(id));
+                if(!p) return;
+
+                const originalHtml = btnElement.innerHTML;
+                btnElement.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+                btnElement.disabled = true;
+
+                const payload = {
+                    name: p.name || p.title,
+                    price: Number(p.price) || 0,
+                    kategori: p.kategori || "",
+                    is_active: newStatus,
+                    cover_url: p.cover_url || "",
+                    deskripsi: p.deskripsi || ""
+                };
+
+                try {
+                    const res = await fetch(`${ADMIN_API_URL}/products/${id}`, {
+                        method: 'PUT', headers: getHeaders(),
+                        body: JSON.stringify(payload)
+                    });
+                    if(!res.ok) throw new Error("Gagal update server.");
+                    p.is_active = newStatus;
+                    window.applyFilterAndSort(true); 
+                } catch(e) {
+                    btnElement.innerHTML = originalHtml;
+                    btnElement.disabled = false;
+                    showNotification("Gagal", "Tidak dapat mengubah status produk.", "error");
+                }
+            }, writable: false, configurable: false
+        });
+
+        // ==========================================
+        // FITUR BARU: AKTIFKAN SEMUA DI HALAMAN INI
+        // ==========================================
+        Object.defineProperty(window, 'activateAllOnPage', {
+            value: async function() {
+                const startIndex = (currentPage - 1) * itemsPerPage;
+                const endIndex = startIndex + itemsPerPage;
+                const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
+                
+                const drafts = paginatedProducts.filter(p => p.is_active === 0);
+                
+                if (drafts.length === 0) {
+                    showNotification("Info", "Semua produk di halaman ini sudah aktif.", "info");
+                    return;
+                }
+
+                if (!confirm(`Anda akan mengaktifkan ${drafts.length} produk berstatus Draft di halaman ini. Proses ini akan membutuhkan waktu beberapa saat. Lanjutkan?`)) return;
+
+                const btn = document.getElementById('btnActivatePage');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Memproses...';
+                btn.disabled = true;
+
+                let successCount = 0;
+                for (let i = 0; i < drafts.length; i++) {
+                    const p = drafts[i];
+                    btn.innerHTML = `<i class="fas fa-spinner fa-spin"></i> Aktif ${i+1} dari ${drafts.length}...`;
+                    
+                    const payload = {
+                        name: p.name || p.title,
+                        price: Number(p.price) || 0,
+                        kategori: p.kategori || "",
+                        is_active: 1,
+                        cover_url: p.cover_url || "",
+                        deskripsi: p.deskripsi || ""
+                    };
+
+                    try {
+                        const res = await fetch(`${ADMIN_API_URL}/products/${p.id}`, {
+                            method: 'PUT', headers: getHeaders(),
+                            body: JSON.stringify(payload)
+                        });
+                        if (res.ok) {
+                            p.is_active = 1;
+                            successCount++;
+                        }
+                    } catch(e) {
+                        console.error("Gagal aktivasi produk ID: ", p.id);
+                    }
+                }
+
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                window.applyFilterAndSort(true);
+                
+                showNotification("Selesai", `Berhasil mengaktifkan ${successCount} produk di halaman ini.`, "success");
+            }, writable: false, configurable: false
+        });
+
+        // ==========================================
+        // FITUR SINKRONISASI MANUAL (TARIK DATA)
         // ==========================================
         async function syncDatabaseToGitHub() {
             if(!confirm("Anda yakin ingin menarik seluruh data dari TiDB ke GitHub?\n\nJika ini pertama kali, proses ini sangat aman untuk mengisi katalog yang masih kosong.")) return;
@@ -424,7 +514,6 @@
 
                 if (response.ok) {
                     showNotification("Sinkronisasi Sukses!", "Data TiDB telah disalin ke GitHub. Memuat ulang data...", "success");
-                    // Tunggu sedikit agar cache raw GitHub berubah, lalu load ulang tabel
                     setTimeout(() => {
                         loadProducts(true);
                     }, 2500);
@@ -606,9 +695,11 @@
             const paginatedProducts = filteredProducts.slice(startIndex, endIndex);
 
             paginatedProducts.forEach(p => {
+                // TOMBOL STATUS BARU: Bisa langsung ditekan
+                const nextStatus = p.is_active === 1 ? 0 : 1;
                 const statusBadge = p.is_active === 1 
-                    ? `<span class="bg-green-100 text-green-700 px-2 py-1 rounded-md text-[10px] font-bold"><i class="fas fa-check-circle mr-1"></i> Aktif</span>`
-                    : `<span class="bg-slate-100 text-slate-500 px-2 py-1 rounded-md text-[10px] font-bold"><i class="fas fa-eye-slash mr-1"></i> Draft</span>`;
+                    ? `<button onclick="window.toggleSingleStatus('${p.id}', ${nextStatus}, this)" class="bg-green-100 text-green-700 hover:bg-green-200 px-2 py-1 rounded-md text-[10px] font-bold transition-colors shadow-sm border border-green-200 w-20"><i class="fas fa-check-circle mr-1"></i> Aktif</button>`
+                    : `<button onclick="window.toggleSingleStatus('${p.id}', ${nextStatus}, this)" class="bg-slate-100 text-slate-500 hover:bg-slate-200 px-2 py-1 rounded-md text-[10px] font-bold transition-colors shadow-sm border border-slate-200 w-20"><i class="fas fa-eye-slash mr-1"></i> Draft</button>`;
 
                 const safeImgUrl = getSafeImageUrl(p.cover_url);
                 const isChecked = selectedIds.has(String(p.id)) ? 'checked' : '';
