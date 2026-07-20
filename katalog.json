@@ -1,11 +1,29 @@
 [
   {
+    "cover_url": "https://i.ibb.co/zHLrnpmG/8a866ddb59e5.jpg",
+    "deskripsi": "",
+    "id": "PROD-FF3BC148",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Mengelola Hati Menggapai Bisnis Yang Selalu Untung, Refleksi",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/xqQzDYbc/042f6df8a418.jpg",
     "deskripsi": "",
     "id": "PROD-FF211B66",
     "is_active": 0,
     "kategori": "",
     "name": "Ekonomi Perkotaan untuk Perencanaan Kota dalam Era Globalisasi Konsep dan Beberapa Model",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/NgPB8cJ9/34da0579573c.jpg",
+    "deskripsi": "",
+    "id": "PROD-FBD2B9A7",
+    "is_active": 0,
+    "kategori": "",
+    "name": "pemahaman strategi bisnis dan kewirausahaan",
     "price": 0
   },
   {
@@ -24,6 +42,15 @@
     "is_active": 0,
     "kategori": "",
     "name": "Konsumen",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/xt5jfRXg/a1424170102a.jpg",
+    "deskripsi": "",
+    "id": "PROD-F56DC686",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Metodologi Penelitian Antropologi Sastra by Suwardi",
     "price": 0
   },
   {
@@ -78,6 +105,15 @@
     "is_active": 0,
     "kategori": "",
     "name": "Buku Ajar Radiofarmasi Fix",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/WpfWtPcL/50c599041428.jpg",
+    "deskripsi": "",
+    "id": "PROD-EBEF9B93",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Metodologi Riset Kesehatan Teknologi Laboratorium Medik dan",
     "price": 0
   },
   {
@@ -189,6 +225,24 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/DgWnyd1f/86f9d5119029.jpg",
+    "deskripsi": "",
+    "id": "PROD-E3BFD9F1",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Penaksiran Multirisiko Bencana di Wilayah Kepesisiran",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/6c966syW/6c43c173c345.jpg",
+    "deskripsi": "",
+    "id": "PROD-E2956D71",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Penerapan Ilmu Matematika dalam Ekonomi dan Bisnis",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/tpGXfGH6/79f6ea0c5de0.jpg",
     "deskripsi": "",
     "id": "PROD-E0EA963C",
@@ -249,6 +303,15 @@
     "is_active": 0,
     "kategori": "",
     "name": "Identitas dan Kenikmatan Politik Budaya Layar Indonesia",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/N64xcbCf/657663c9f538.jpg",
+    "deskripsi": "",
+    "id": "PROD-DC2847A1",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Nilai-Nilai Arsitektur Rumah Tradisional Jawa",
     "price": 0
   },
   {
@@ -459,6 +522,15 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/zVgsNbB1/9864b8351c8a.jpg",
+    "deskripsi": "",
+    "id": "PROD-C03CC0D8",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Mengenal Ilmu Bahasa (Linguistik)",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/GvfrmHY8/379fbae2f550.jpg",
     "deskripsi": "",
     "id": "PROD-BF2C47DA",
@@ -504,6 +576,24 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/DnXy6pF/228a18d20115.jpg",
+    "deskripsi": "",
+    "id": "PROD-BA28F353",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Pendidikan Kedewasaan dalam Perspektif Psikologi Islami",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/WpdzM23m/2fc5b59a3153.jpg",
+    "deskripsi": "",
+    "id": "PROD-B92EDFCA",
+    "is_active": 0,
+    "kategori": "",
+    "name": "metodologi kajian tradisi lisan",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/7BbVY3d/2e84024da34f.jpg",
     "deskripsi": "",
     "id": "PROD-B85C6239",
@@ -519,6 +609,15 @@
     "is_active": 0,
     "kategori": "",
     "name": "Evaluasi Soal-soal Penerimaan Pegawai Baru Dilengkapi dengan",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/Xk2z1VfR/7092803149aa.jpg",
+    "deskripsi": "",
+    "id": "PROD-B7B5ECB3",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Pasar Modal Manajemen Portofolio & Investasi Fix",
     "price": 0
   },
   {
@@ -558,12 +657,30 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/nNfzkFD8/59072bef8e0c.jpg",
+    "deskripsi": "",
+    "id": "PROD-B1B9F9AA",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Membangun Peradaban Kota",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/BHbZTtcn/b53d86852e4e.jpg",
     "deskripsi": "",
     "id": "PROD-B1490D2C",
     "is_active": 0,
     "kategori": "",
     "name": "Kimia Organik Farmasi",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/xKY4Wr0Y/d7fdbe756092.jpg",
+    "deskripsi": "",
+    "id": "PROD-B0F945E6",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Metodologi Penelitian Kuantitatif Komunikasi, Ekonomi dan",
     "price": 0
   },
   {
@@ -657,6 +774,15 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/tMW8bVZD/6c57959251b0.jpg",
+    "deskripsi": "",
+    "id": "PROD-A3D71599",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Model CSR Berbasis Komunitas Integrasi penerapan tanggung jawab",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/NnS73D1Q/809709223701.jpg",
     "deskripsi": "",
     "id": "PROD-A2C1B7D5",
@@ -693,6 +819,15 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/TM1ryYvn/8c945f36b8d3.jpg",
+    "deskripsi": "",
+    "id": "PROD-9D1A6A55",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Muqoddimah Ngrowo, Tutur Lisan Hingga Tutur Tulisan",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/C3gNQJMm/b274ee7c0396.jpg",
     "deskripsi": "",
     "id": "PROD-9AFCAE50",
@@ -711,6 +846,15 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/7tHS3RsY/08e50a45b99f.jpg",
+    "deskripsi": "",
+    "id": "PROD-991EE1FC",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Menyusun Tinjauan Pustaka untuk Skripsi, Tesis, dan Disertasi serta sebagai Artikel Ilmiah",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/mFNbpv6L/ce644d85662a.jpg",
     "deskripsi": "",
     "id": "PROD-98DB29F4",
@@ -726,6 +870,24 @@
     "is_active": 0,
     "kategori": "",
     "name": "Etika Berbasis Kebebasan Amartya Sen Integrasi Kebebasan dalam",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/HDkM6nmM/92b26f96e84d.jpg",
+    "deskripsi": "",
+    "id": "PROD-9766EBD8",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Pemberdayaan dalam Penguatan Inovasi dan Teknologi Pangan",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/bgVXJqbC/11c46fccc12c.jpg",
+    "deskripsi": "",
+    "id": "PROD-96A0BBC8",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Mengenal Bentuk-Bentuk Konservasi Alam",
     "price": 0
   },
   {
@@ -756,12 +918,30 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/FqH9RxVL/fe9e62b84c6f.jpg",
+    "deskripsi": "",
+    "id": "PROD-9496D5E1",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Morfologi Bahasa Indonesia dan Nusantara (Morfologi Tujuh Bahasa",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/Q3JNN4rn/08f7a4a028fb.jpg",
     "deskripsi": "",
     "id": "PROD-9460B971",
     "is_active": 0,
     "kategori": "",
     "name": "Buku Ajar SOSIOLOGI KEPERAWATAN Konsep & Aplikasi",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/xqD4pG5s/9b49817c19fa.jpg",
+    "deskripsi": "",
+    "id": "PROD-943DF74C",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Pembangunan Berkelanjutan di Indonesia Di Persimpangan Jalan",
     "price": 0
   },
   {
@@ -798,6 +978,15 @@
     "is_active": 0,
     "kategori": "",
     "name": "Komunikasi Pendidikan  Penerapan Teori dan Konsep Komunikasi",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/4HtnXwm/6f04fe3a097f.jpg",
+    "deskripsi": "",
+    "id": "PROD-90A9743C",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Memahami Belajar Entrepreneurship di Perguruan Tinggi",
     "price": 0
   },
   {
@@ -945,6 +1134,15 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/mV3JjFzF/f010836ec129.jpg",
+    "deskripsi": "",
+    "id": "PROD-7898603F",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Pembelajaran Bahasa Arab di Madrasah",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/7dNS1gx8/b2bbed620ca6.jpg",
     "deskripsi": "",
     "id": "PROD-77E78916",
@@ -954,12 +1152,30 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/HTvCzNTM/cc4dc3773c8e.jpg",
+    "deskripsi": "",
+    "id": "PROD-7734A657",
+    "is_active": 0,
+    "kategori": "",
+    "name": "MEKANISME AKSI MOLEKULER ANTIBIOTIK dan KEMOTERAPI Fix",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/xKNJWqKN/48ef4789bb26.jpg",
     "deskripsi": "",
     "id": "PROD-770CBDF8",
     "is_active": 0,
     "kategori": "",
     "name": "Buku Ajar Asuhan Keperawatan Klien Gangguan Kardiovaskular",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/HpDs6kP8/75b1162bee0e.jpg",
+    "deskripsi": "",
+    "id": "PROD-76FBF01F",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Menggali Pemikiran Posmodernisme Dalam Arsitektur",
     "price": 0
   },
   {
@@ -987,6 +1203,15 @@
     "is_active": 0,
     "kategori": "",
     "name": "Manajemen",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/xS1qJKTm/aa5c9f2d50a8.jpg",
+    "deskripsi": "",
+    "id": "PROD-75721102",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Pain(t)",
     "price": 0
   },
   {
@@ -1098,6 +1323,42 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/wZBpCSpC/49f954789c57.jpg",
+    "deskripsi": "",
+    "id": "PROD-6A686F48",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Metode Horisontal (Metris) Penjumlahan & Pengurangan Ajaib",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/cSqc9H8F/16f179fff119.jpg",
+    "deskripsi": "",
+    "id": "PROD-69AE7A6B",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Menggambar Rumah Tinggal Minimalis",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/WvDcdzzF/cc188c77b8f8.jpg",
+    "deskripsi": "",
+    "id": "PROD-68CC3D9D",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Metodologi Penelitian Farmasi Komunitas dan Eksperimental",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/0RWq0jfX/b88f0654dd2b.jpg",
+    "deskripsi": "",
+    "id": "PROD-674FB730",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Mengobarkan Api Matematika",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/pjcqkhmW/f64a9136ede8.jpg",
     "deskripsi": "",
     "id": "PROD-665F0B77",
@@ -1113,6 +1374,15 @@
     "is_active": 0,
     "kategori": "",
     "name": "Keperawatan Medikal Bedah Gangguan Visual & Auditori",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/JRnjQsT8/57be2948afb4.jpg",
+    "deskripsi": "",
+    "id": "PROD-634DDECC",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Metode Numerik Aplikasi untuk Teknik Sipil",
     "price": 0
   },
   {
@@ -1149,6 +1419,15 @@
     "is_active": 0,
     "kategori": "",
     "name": "aljabar matriks dasar",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/840PK1qW/34bb606a4e56.jpg",
+    "deskripsi": "",
+    "id": "PROD-5FF4ACD3",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Nikel Indonesia",
     "price": 0
   },
   {
@@ -1215,6 +1494,15 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/3yW7xh9K/ff561b2f85de.jpg",
+    "deskripsi": "",
+    "id": "PROD-59BCD156",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Pencahayaan Alami Dalam Arsitektur",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/bgmyjVST/265ba306b2a2.jpg",
     "deskripsi": "",
     "id": "PROD-58A41E1A",
@@ -1260,12 +1548,39 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/yF2Yy4Xm/9f0eb71b1c4d.jpg",
+    "deskripsi": "",
+    "id": "PROD-53BF9E20",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Pengantar Analisis Data Kategorik",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/8gN2SkbF/e068a87597b2.jpg",
+    "deskripsi": "",
+    "id": "PROD-531142D8",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Mengenal Organisasi Pelestarian Lingkungan",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/B2fjQ7W6/48e3b27b758b.jpg",
     "deskripsi": "",
     "id": "PROD-5026A07D",
     "is_active": 0,
     "kategori": "",
     "name": "kewirausahaan industri",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/DDHRSrVG/dc3f77f715a0.jpg",
+    "deskripsi": "",
+    "id": "PROD-4BC5A850",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Pengantar Etika Lingkungan dan Kearifan Lokal",
     "price": 0
   },
   {
@@ -1350,12 +1665,30 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/wrcrSKjn/cbced9be42d6.jpg",
+    "deskripsi": "",
+    "id": "PROD-3F303216",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Melestarikan Sumberdaya Air dengan Teknologi Rawa Buatan",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/Y7StZVzd/77555226b429.jpg",
     "deskripsi": "",
     "id": "PROD-3D1DE42C",
     "is_active": 0,
     "kategori": "",
     "name": "Analisis Data dengan SPSS Belajar Mudah untuk Penelitian Fix",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/h1DbDVjg/a96251438b45.jpg",
+    "deskripsi": "",
+    "id": "PROD-3C401446",
+    "is_active": 0,
+    "kategori": "",
+    "name": "NEGARA dalam dimensi Hukum Internasional",
     "price": 0
   },
   {
@@ -1383,6 +1716,24 @@
     "is_active": 0,
     "kategori": "",
     "name": "Ilmu Hukum Holistik Studi untuk Memahami Kompleksitas dan",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/N2KxP9mp/0484129df8f6.jpg",
+    "deskripsi": "",
+    "id": "PROD-38ED7439",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Memahami Propaganda Metode, Praktik, dan Analisis",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/qL8ZPgdn/91ed35b95a9f.jpg",
+    "deskripsi": "",
+    "id": "PROD-386399E5",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Pencemaran Lingkungan",
     "price": 0
   },
   {
@@ -1440,6 +1791,33 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/4wwqRW4L/de2c7bbdbd20.jpg",
+    "deskripsi": "",
+    "id": "PROD-2EB041F3",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Modern Internal Auditing",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/1fmSQXpN/44b030dc167a.jpg",
+    "deskripsi": "",
+    "id": "PROD-2DE4123B",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Model Pembelajaran Bahasa Arab",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/LzCR6s5F/c374ce691d16.jpg",
+    "deskripsi": "",
+    "id": "PROD-2D83B82C",
+    "is_active": 0,
+    "kategori": "",
+    "name": "PEMBATASAN DAN PENGECUALIAN HAK CIPTA DI ERA DIGITAL",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/rRZPt1tg/fcb8541ddc99.jpg",
     "deskripsi": "",
     "id": "PROD-2CBA0212",
@@ -1455,6 +1833,15 @@
     "is_active": 0,
     "kategori": "",
     "name": "Bunga Rampai Penelitian dalam Pendidikan Agama Islam",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/MDrZTMbJ/4de149f340a9.jpg",
+    "deskripsi": "",
+    "id": "PROD-294E290B",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Mudah Menghitung dan Mengisi E-SPT PAJAK PENGHASILAN PASAL",
     "price": 0
   },
   {
@@ -1476,12 +1863,30 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/q3ZgtyzX/b991ba0fa196.jpg",
+    "deskripsi": "",
+    "id": "PROD-27F0D180",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Merancang Rumah Di Area Gempa",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/Lzf823HZ/23a8d157bdca.jpg",
     "deskripsi": "",
     "id": "PROD-2597242F",
     "is_active": 0,
     "kategori": "",
     "name": "Komunikasi Penjualan",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/Lh0XGSYK/0cabf2d64216.jpg",
+    "deskripsi": "",
+    "id": "PROD-257A0EA1",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Meramal Semudah Membalik Kartu Tarot (Buku)",
     "price": 0
   },
   {
@@ -1503,6 +1908,15 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/FNGKdfz/4188d42ef5d1.jpg",
+    "deskripsi": "",
+    "id": "PROD-230CB878",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Modal Sosial dan Ekonomi Industri Kecil Sebuah Studi Kualitatif",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/Yg2Srdy/e9e1d697170c.jpg",
     "deskripsi": "",
     "id": "PROD-21955288",
@@ -1521,6 +1935,15 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/TMf07Wm3/4b2c2702d6d4.jpg",
+    "deskripsi": "",
+    "id": "PROD-1ECE1A3E",
+    "is_active": 0,
+    "kategori": "",
+    "name": "PASAR MODAL MODERN",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/CpzgmZym/0e85da89ab49.jpg",
     "deskripsi": "",
     "id": "PROD-1BC94DF4",
@@ -1530,12 +1953,30 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/6cdGQ0T7/2336ebfb1e0d.jpg",
+    "deskripsi": "",
+    "id": "PROD-1B6F23FF",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Pengantar Akuntansi Bank Soal dan Solusi",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/RkNSvMNR/8f54d9ccb0f1.jpg",
     "deskripsi": "",
     "id": "PROD-1B58C219",
     "is_active": 0,
     "kategori": "",
     "name": "Dokumen Jibril",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/tp0t77NW/16d316e1b22f.jpg",
+    "deskripsi": "",
+    "id": "PROD-1A8A1F9E",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Menjaga Hutan Kita Pro-Kontra Kebijakan Moratorium Hutan dan",
     "price": 0
   },
   {
@@ -1638,6 +2079,24 @@
     "price": 0
   },
   {
+    "cover_url": "https://i.ibb.co/8n2ZxKCt/112c1f4cab86.jpg",
+    "deskripsi": "",
+    "id": "PROD-0AB846B3",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Metodologi Penelitian Hukum Normatif dalam justifikasi teori",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/1tyZ33bf/3be8f2948db1.jpg",
+    "deskripsi": "",
+    "id": "PROD-0A903CDF",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Menangani Banjir, Kekeringan, dan Lingkungan",
+    "price": 0
+  },
+  {
     "cover_url": "https://i.ibb.co/hRD73c10/447a22f8aeb8.jpg",
     "deskripsi": "",
     "id": "PROD-09CEB0D9",
@@ -1662,6 +2121,33 @@
     "is_active": 0,
     "kategori": "",
     "name": "Analisis Fitokimia",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/Ngmndpr9/e1477b76f02d.jpg",
+    "deskripsi": "",
+    "id": "PROD-05A7A1BF",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Panduan Pendidik dalam Mengimplementasikan Kurikulum PAUD 2013",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/DDcCSqVZ/5cc7c17e32fc.jpg",
+    "deskripsi": "",
+    "id": "PROD-05828C2A",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Pembangunan Sosial di Wilayah Perbatasan Kapuas Hulu, Kalimantan",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/jkjxDdMF/74524ee5cdd8.jpg",
+    "deskripsi": "",
+    "id": "PROD-04759AD5",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Meneliti itu Tidak Sulit Metodologi Penelitian Sosial dan",
     "price": 0
   },
   {
@@ -1698,6 +2184,15 @@
     "is_active": 0,
     "kategori": "",
     "name": "Dasar-dasar Perlindungan Hutan",
+    "price": 0
+  },
+  {
+    "cover_url": "https://i.ibb.co/vpQ8Zjh/17d680f6ccba.jpg",
+    "deskripsi": "",
+    "id": "PROD-0010DE88",
+    "is_active": 0,
+    "kategori": "",
+    "name": "Mengembalikan Kepercayaan Publik Melalui REFORMASI BIROKRASI",
     "price": 0
   }
 ]
